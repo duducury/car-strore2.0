@@ -1,0 +1,277 @@
+.filter-section {
+    position: relative;
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 120px; 
+  }
+  
+  .filter-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    background: url('imgs/cars/carro1/Blue5.jpg') no-repeat center center;
+    background-size: cover; 
+    z-index: 1;
+    filter: brightness(40%);
+    transform: translateY(0); 
+    will-change: transform; 
+  }
+  
+  
+  
+  
+  .filter-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff; /* Texto em branco */
+  }
+  
+  .filter-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Estilizando a área de filtros */
+.filter-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #fff; /* Fundo branco */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  /* Estilizando os dropdowns */
+  .filter-options select {
+    appearance: none; /* Remove estilo padrão */
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Estilo do botão de busca */
+  .filter-search-btn {
+    padding: 10px 20px;
+    background-color: #007bff; /* Azul vibrante */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Ícone da lupa */
+  .filter-search-btn i {
+    font-size: 1.2rem;
+  }
+  
+  /* Hover no botão de busca */
+  .filter-search-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .filter-options {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
+
+
+.inventory-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.inventory-header {
+    text-align: left;
+    width: 100%;
+    padding-left: 40px;
+}
+
+.subtitle {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.title {
+    font-size: 50px;
+    color: #242830;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Grid de produtos */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+
+
+
+#prevInventory {
+    left: 10px;
+}
+
+#nextInventory {
+    right: 10px;
+}
+
+/* Estilo Responsivo */
+@media (max-width: 991px) {
+    .inventory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .inventory-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #555;
+}
+
+#pageIndicator {
+    font-size: 16px;
+    color: #333;
+}
+
+
+
+
+.navbar.hidden {
+    transform: translateY(-100%); 
+    transition: transform 0.3s ease; 
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    transition: transform 0.3s ease; 
+}
+
+
+
+
+
+
+.contact-card {
+    margin: 50px auto;
+    max-width: 800px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.contact-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #cccccc;
+}
+
+.contact-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact-btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-btn.email {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.contact-btn.email:hover {
+    background-color: #0056b3;
+}
+
+.contact-btn.whatsapp {
+    background-color: #25d366;
+    color: #fff;
+}
+
+.contact-btn.whatsapp:hover {
+    background-color: #1eb955;
+}
+
+.contact-btn i {
+    font-size: 1.2rem;
+}

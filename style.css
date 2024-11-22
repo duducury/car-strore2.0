@@ -1,0 +1,1406 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; 
+    background-color: #e5e5e5;
+}
+
+
+
+/* Carousel container */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 85vh; 
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 80px; 
+    z-index: 1; 
+}
+
+/* Carousel slides */
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%; 
+}
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; 
+    transition: opacity 1s ease; 
+}
+
+.carousel-item:first-child {
+    opacity: 1; 
+    z-index: 1; 
+}
+
+
+.carousel-image {
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%; 
+    display: block;
+    object-fit: cover; 
+}
+
+/* Carousel content */
+.carousel-content {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: #000;
+    text-align: left;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+.carousel-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.carousel-description {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #000;
+}
+
+.carousel-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Navigation buttons */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carousel-nav button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+
+
+/* Thumbnail Container: Initially Hidden */
+.thumbnail-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    z-index: 5;
+}
+
+/* Show Thumbnails on Carousel Hover */
+.carousel:hover .thumbnail-container {
+    opacity: 1; 
+}
+
+/* Thumbnail Styles */
+.thumbnail {
+    width: 80px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    opacity: 0.7;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+    opacity: 1;
+    border: 2px solid #000; 
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-title {
+        font-size: 2rem;
+    }
+    .carousel-description {
+        font-size: 1rem;
+    }
+    .carousel-content {
+        top: 10%;
+        left: 5%;
+        max-width: 80%;
+    }
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: rgba(240, 240, 245, 0.8);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    transition: top 0.3s ease;
+}
+
+/* Hide navbar by moving it out of view */
+.navbar.hidden {
+    top: -100px;
+}
+
+/* Make navbar stay visible at the top */
+.navbar.show {
+    top: 0;
+}
+
+
+.navbar:hover {
+    top: 0; /* Show the navbar when hovered */
+}
+
+/* Remove underline and change color */
+.navbar .menu-item a {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+/* Estilo para links ativos */
+.navbar .menu-item a:hover,
+.navbar .menu-item a:active,
+.navbar .menu-item a:focus {
+    color: inherit; /* Remove a cor azul */
+    text-decoration: none; /* Garante que não haja sublinhado */
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+}
+/* Navigation menu */
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu-item {
+    margin: 0 15px;
+    font-size: 1rem;
+    color: #000; /* Set initial color to black */
+    font-weight: bold; /* Make text bold */
+    position: relative;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    color: #f80000; /* Change color on hover */
+}
+
+.menu-item:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: #f80000; /* Match hover color */
+    transition: width 0.3s ease;
+    width: 100%;
+}
+
+/* Hamburger menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: #f0f0f5;
+    }
+    .menu.active {
+        display: flex;
+    }
+    .menu-item {
+        margin: 10px 0;
+    }
+}
+
+/* Main Inventory Section */
+.inventory-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 120px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.inventory-section {
+    position: relative;
+    overflow: hidden; /* Para esconder a parte fora da área visível */
+}
+
+.inventory-grid {
+    display: flex;
+    overflow: hidden; /* Oculta o conteúdo que ultrapassa a área visível */
+    width: calc(25% * 4); /* Define a largura para mostrar 4 produtos, cada um com 25% da largura */
+}
+
+.car-card {
+    min-width: 25%; /* Cada produto ocupa 25% da área visível */
+    box-sizing: border-box;
+}
+
+
+.inventory-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+#prevInventory {
+    left: 10px;
+}
+
+#nextInventory {
+    right: 10px;
+}
+
+.inventory-header {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: flex-start; /* Aligns items to the left */
+    width: 100%;
+    padding-left: 40px; /* Adjust this value to control the horizontal position */
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 24px; /* Aumente para 24px ou ajuste conforme necessário */
+    color: #333;
+    margin: 0;
+}
+
+.title {
+    font-size: 50px; /* Aumente para 42px ou ajuste conforme necessário */
+    color: #242830;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+/* Adjusting car grid layout */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Four columns */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+/* Styling each car card */
+.car-card {
+    background-color: #222222;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+.inventory-grid {
+    display: flex;
+    overflow: hidden; /* Oculta o conteúdo que ultrapassa a área visível */
+    width: 100%; /* Use 100% para a largura do grid */
+    max-width: 1200px; /* Limita a largura máxima do contêiner */
+}
+
+.car-card {
+    min-width: 25%; /* Cada produto ocupa 25% da área visível */
+    box-sizing: border-box;
+    flex-shrink: 0; /* Evita que o item encolha */
+}
+
+
+
+
+.car-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombreamento elegante */
+    margin: 10px auto; /* Espaçamento uniforme entre os cards */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+}
+
+
+
+.car-card:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho ao passar o mouse */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Sombreamento mais forte no hover */
+}
+
+
+
+.car-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 1px solid #818181;
+}
+
+.car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.car-details {
+    padding: 20px;
+}
+
+.car-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.car-price {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.car-specs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #cccccc;
+}
+
+.car-spec {
+    background-color: #1b1f24;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+.view-details-btn {
+    margin: 15px auto 0; /* Centraliza o botão horizontalmente */
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    font-weight: bold;
+    display: block; /* Garante que o botão seja tratado como bloco */
+    width: fit-content; /* Ajusta a largura ao conteúdo */
+}
+
+.view-details-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .inventory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .car-card {
+        height: auto; /* Remove a altura fixa em telas pequenas */
+    }
+}
+
+@media (max-width: 600px) {
+    .inventory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .car-card {
+        max-width: 90%; /* Ocupa quase toda a largura da tela */
+    }
+}
+
+/* Zoom-in effect for inventory images */
+.car-image img {
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.car-image:hover img {
+    transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+
+
+
+/* Intro Section Styling */
+.intro-section {
+    background-color: #ffffff; /* White background */
+    text-align: center;
+    padding: 50px;
+    font-family: 'Poppins', sans-serif;
+    color: #333; /* Dark grey text for a clean look */
+}
+
+.intro-greeting {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+    color: #333;
+}
+
+.wave {
+    font-size: 2rem;
+    vertical-align: middle;
+}
+
+.intro-name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.highlight {
+    background: linear-gradient(90deg, #4a90e2, #9b51e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #666;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+.work-section {
+    padding: 40px;
+    background-color: #000000;
+    text-align: center;
+    border-radius: 10px;
+    color: white !important; /* Force the text to be white */
+}
+
+.work-header {
+    position: sticky;
+    top: -20px;
+    background-color: #000000;
+    padding: 10px 20px;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: white !important; /* Force the text to be white */
+}
+
+
+
+
+.work-gallery-container {
+    max-width: 1000px; /* Ajuste este valor conforme necessário */
+    margin: 0 auto; /* Centraliza a galeria */
+    padding: 0 20px; /* Espaço interno para evitar que as bordas encostem */
+}
+
+
+
+/* Grade 3x3 para os itens da galeria */
+.work-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Três colunas */
+    grid-gap: 20px;
+}
+
+/* Estilo dos cards individuais */
+.work-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.work-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Transição suave para o efeito de zoom */
+}
+
+.work-item:hover img {
+    transform: scale(1.1); /* Aplica um zoom de 10% ao passar o mouse */
+}
+.work-header, .work-header h2, .work-header h3, .work-section, .work-section h2, .work-section h3 {
+    color: white !important; /* Ensure text color is white */
+}
+
+.work-gallery-more {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.see-more-btn {
+    background-color: #003cff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.see-more-btn:hover {
+    background-color: #00b7ff98;
+}
+
+
+
+
+
+
+/* Lightbox */
+.lightbox {
+    display: none; /* Oculto inicialmente */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 10px;
+    user-select: none;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+
+
+
+
+.dream-car-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #f5f5f5;
+    position: relative;
+}
+
+.dream-car-card {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 500px;
+    position: relative; /* To ensure the header is positioned relative to the card */
+}
+
+.dream-car-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2.0em; /* Increase font size for more impact */
+    font-weight: bold;
+    color: #f3e8a8; /* White text color */
+    background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background */
+    padding: 15px 20px; /* Increase padding for a bigger area */
+    border-radius: 8px;
+    z-index: 2; /* Ensures the header is on top */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Add shadow for more emphasis */
+    letter-spacing: 1px; /* Slight letter spacing for better readability */
+}
+
+
+.dream-car-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.word {
+    margin: auto;
+    color: rgb(255, 255, 255);
+    font: 700 normal 2.5em 'Tahoma';
+    text-shadow: 5px 2px #222324, 2px 4px #000000, 3px 5px #000000;
+}
+
+.dream-car-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.dream-car-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.dream-car-image img:hover {
+    transform: scale(1.1); /* Zoom in by 20% */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dream-car-card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .dream-car-text h2 {
+        font-size: 1.5rem;
+    }
+}
+
+.word {
+    margin: auto;
+    color: rgb(255, 255, 255);
+    font: 700 normal 2.5em 'tahoma';
+    text-shadow: 5px 2px #222324, 2px 4px #000000, 3px 5px #000000;
+  }
+
+
+
+
+
+  /* Container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30px;
+    width: 100%;
+  }
+  
+  .spacer {
+    display: flex;
+    min-height: 60px;
+    width: 100%;
+  }
+  
+  /* Section title styling */
+  .section-title {
+    display: flex;
+    flex-direction: column;
+    color: #242830;
+    text-align: center;
+    font: 900 50px/66px 'Inter', sans-serif;
+    justify-content: start;
+  }
+  
+  .section-title-text {
+    width: 100%;
+    padding: 0 386px;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 0 66px;
+  }
+  
+  .features-container {
+    display: flex;
+    width: 100%;
+    max-width: 1275px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  /* Individual feature item styling */
+  .feature-item {
+    display: flex;
+    min-width: 240px;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  .feature-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 25px;
+  }
+  
+  .feature-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+  }
+  
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 150px 8px;
+  }
+  
+  .icon-background {
+    align-items: center;
+    border-radius: 37.5px;
+    display: flex;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    padding: 20px;
+  }
+  
+  .icon {
+    width: 29px;
+  }
+  
+  .feature-title {
+    text-align: center;
+    color: #000;
+    font: 700 23px/40px 'Inter', sans-serif;
+  }
+  
+  .feature-description {
+    text-align: center;
+    color: #6f6f6f;
+    font: 400 16px/27px 'Inter', sans-serif;
+    max-width: 300px;
+    padding-top: 10px;
+  }
+  
+  @media (max-width: 991px) {
+    .section-title-text {
+      font-size: 40px;
+      padding: 0 20px;
+    }
+    .content-wrapper {
+      padding: 0 20px;
+    }
+    .feature-item {
+      max-width: 100%;
+    }
+    .icon-container {
+      padding: 0 20px;
+    }
+    .icon-background {
+      padding: 0 20px;
+    }
+  }
+  
+
+
+
+
+
+
+
+  .logo-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Oculta itens fora da área visível */
+    padding: 20px 0;
+    background-color: #e4e4e4;
+}
+
+.slider-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease; /* Transição suave ao rolar */
+    will-change: transform; /* Melhor desempenho */
+}
+
+.slider-item {
+    flex: 0 0 25%; /* Cada item ocupa 25% da largura do track */
+    max-width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slider-item img {
+    max-width: 80%; /* Tamanho ajustado das imagens */
+    max-height: 80%; /* Tamanho proporcional */
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.8); /* Inicialmente em tons de cinza com brilho reduzido */
+    transition: filter 0.3s ease, transform 0.3s ease; /* Transição suave para filtro e escala */
+}
+
+.slider-item img:hover {
+    filter: grayscale(0%) saturate(200%) brightness(1.2); /* Remove cinza e aumenta a saturação e brilho */
+    transform: scale(1.1); /* Leve zoom ao passar o mouse */
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: #555;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+
+
+
+
+
+.instagram-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f8;
+}
+
+.instagram-link {
+    text-decoration: none; /* Remove o sublinhado do link */
+    display: block; /* Faz o link ocupar todo o espaço do título */
+}
+
+.instagram-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre o texto e os ícones */
+    transition: color 0.3s ease; /* Suaviza a mudança de cor */
+}
+
+.instagram-title:hover {
+    color: #dd2a7b; /* Cor típica do Instagram ao passar o mouse */
+}
+
+.instagram-icon {
+    font-size: 1.5rem; /* Tamanho dos ícones */
+    color: #dd2a7b;
+    transition: transform 0.3s ease; /* Suaviza o efeito no ícone */
+}
+
+.instagram-title:hover .instagram-icon {
+    transform: scale(1.2); /* Leve aumento no ícone ao passar o mouse */
+}
+
+
+
+.instagram-embed iframe {
+    max-width: 800px;
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+}
+
+.view-profile-btn-container {
+    margin-top: 20px;
+}
+
+.view-profile-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #006d1b; /* Azul vibrante para o botão */
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Adiciona uma sombra para destaque */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-profile-btn:hover {
+    background-color: #29f500; /* Cor mais escura no hover para contraste */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25); /* Aumenta a sombra no hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+.footer-section {
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 240px;
+    padding: 10px;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo-image {
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    background-color: #fff; /* Fundo branco para destacar a logo */
+    padding: 10px; /* Espaço interno para destacar a logo */
+    border-radius: 10px; /* Bordas arredondadas para um acabamento melhor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+}
+
+
+.footer-about {
+    margin: 10px 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #d4d4d4;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.footer-links,
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.footer-link {
+    color: #d4d4d4;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #3897f0;
+}
+
+.footer-contact li {
+    margin-bottom: 10px;
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    color: #3897f0;
+}
+
+.whatsapp-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #25d366;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.whatsapp-link:hover {
+    background-color: #1ebe56;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #3897f0;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #3b4250;
+    padding-top: 10px;
+    font-size: 0.8rem;
+    color: #d4d4d4;
+}
+.footer-logo img {
+    transition: transform 0.3s ease; 
+    background-color: #fff; 
+    padding: 10px; 
+    border-radius: 10px;
+}
+
+.footer-logo:hover img {
+    transform: scale(1.1); 
+}
+
+
+
+
+
+
+
+
+.statistics-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: #f8f8f8;
+}
+
+.statistics-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px;
+}
+
+.statistics-column {
+    text-align: center;
+    flex: 1;
+    margin: 0 20px;
+}
+
+.years-number {
+    font-size: 90px;
+    color: #073c66;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+.years-text {
+    max-width: 800px;
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+.years-heading {
+    font-size: 24px; 
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px; 
+    white-space: nowrap; 
+}
+
+.years-description {
+    font-size: 15px; 
+    line-height: 1.5; 
+    color: #666;
+    text-align: center; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+
+.data-number {
+    font-size: 50px;
+    font-weight: 900;
+    color: #242830;
+}
+
+.data-label {
+    font-size: 16px;
+    color: #073c66;
+    margin-top: 5px;
+}
+
+.vertical-border {
+    height: 80px;
+    border-right: 1px solid #dfe3eb;
+    margin: 0 10px;
+}
+
+@media (max-width: 1024px) {
+    .statistics-container {
+        padding: 0 20px;
+        gap: 20px;
+    }
+
+    .years-description {
+        font-size: 15px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .statistics-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .vertical-border {
+        display: none; 
+    }
+
+    .years-number {
+        font-size: 70px;
+    }
+
+    .data-number {
+        font-size: 40px;
+    }
+
+    .years-description {
+        max-width: 90%;
+        text-align: justify; 
+    }
+}
+
+
+
+
+
+
+
+
+
+.view-all-options {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.view-all-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+.carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.carousel-btn#prevBtn {
+    left: 10px;
+}
+
+.carousel-btn#nextBtn {
+    right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+  

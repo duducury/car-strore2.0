@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <title>Carousel with Opposite Mouse Follow Animation</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+.navbar {
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
+    background-color: #ffffff; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="/">
+        <img src="imgs/logo.png" alt="Marcelo Tripa" class="logo-img">
+      </a>
+    </div>
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="menu">
+      <li class="menu-item"><a href="/">Home</a></li>
+      <li class="menu-item"><a href="para-importar.html">Para Importar</a></li>
+      <li class="menu-item"><a href="sobre.html">Sobre nós</a></li>
+      <li class="menu-item"><a href="duvidas.html">Duvidas</a></li>
+      <li class="menu-item"><a href="contato.html">Contato</a></li>
+      <li class="menu-item"><a href="provassociais.html">Provas Sociais</a></li>
+    </ul>
+  </header>
+  <br>
+
+
+
+
+<!-- Link to Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+
+<section class="work-section" style="margin-top: 100px;"> <!-- Adiciona margem superior -->
+    <!-- Contêiner da galeria com rolagem -->
+    <div class="work-gallery-container">  
+        <div class="intro-text" style="position: sticky; top: 0; z-index: 10; background-color: #000; padding: 10px;">
+            <h2 class="intro-name" style="font-size: 28px; color: white;"> <!-- Ajusta o tamanho e cor do texto -->
+                MARCELO <span class="highlight"> TRIPA </span><span class="wave">🚀</span><br>
+                O Maior <span class="highlight"> IMPORTADOR </span>De veículos do País🚗...
+            </h2>
+        </div>
+        <div class="work-gallery">
+              <!-- Imagens adicionadas aqui -->
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0386.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0387.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0388.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0389.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0390.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0391.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0392.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0393.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0394.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0395.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0396.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0397.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0398.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0399.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0400.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0401.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0402.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0403.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0404.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0405.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0406.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0407.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0408.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0409.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0410.jpg" alt="Carro Importado"></div>
+              <div class="work-item"><img src="imgs/trabalho/IMG-20241114-WA0411.jpg" alt="Carro Importado"></div>
+          </div>
+              <!-- Botão "Ver Mais" -->
+        <div class="work-gallery-more">
+          <button class="see-more-btn" onclick="location.href='sobre.html'" >Ver Mais</button>
+      </div>
+      </div>
+  </section>
+  
+  
+  
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-image" class="lightbox-content" src="" alt="Imagem ampliada">
+  <a class="lightbox-prev" onclick="changeImage(-1)">&#10094;</a>
+  <a class="lightbox-next" onclick="changeImage(1)">&#10095;</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    <script src="script.js"></script>
+  </body>
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="footer-content">
+        <!-- Logo and About Section -->
+        <div class="footer-column">
+            <div class="footer-logo">
+                <a href="/">
+                    <img src="imgs/logo.png" alt="Logo" class="footer-logo-image">
+                </a>
+            </div>
+            <p class="footer-about">
+                Com mais de 30 anos de experiência, Marcelo Tripa é referência em importação de veículos exclusivos, trazendo qualidade, desempenho e luxo para o Brasil.
+            </p>
+        </div>
+  
+        <!-- Navigation Links -->
+        <div class="footer-column">
+            <h3 class="footer-title">Links Rápidos</h3>
+            <ul class="footer-links">
+                <li><a href="/" class="footer-link">Home</a></li>
+                <li><a href="#para-importar" class="footer-link">Para Importar</a></li>
+                <li><a href="#nosso-estoque" class="footer-link">Nosso Estoque</a></li>
+                <li><a href="#blog" class="footer-link">Blog</a></li>
+                <li><a href="#contato" class="footer-link">Contato</a></li>
+            </ul>
+        </div>
+  
+        <!-- Contact Information -->
+        <div class="footer-column">
+            <h3 class="footer-title">Contato</h3>
+            <ul class="footer-contact">
+                <li><i class="fas fa-phone"></i> Telefone: (11) 99999-9999</li>
+                <li><i class="fas fa-envelope"></i> Email: contato@marcelotripa.com</li>
+                <li><i class="fas fa-map-marker-alt"></i> Endereço: Rua Exemplo, 123, São Paulo, SP</li>
+            </ul>
+            <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-link">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+  
+        <!-- Social Media Links -->
+        <div class="footer-column">
+            <h3 class="footer-title">Redes Sociais</h3>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/marcelotripa/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/marcelotripa" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/SEUNUMERODETELEFONE" target="_blank" class="social-icon" aria-label="WhatsApp">
+                  <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+        </div>
+    </div>
+    
+  
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Marcelo Tripa. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  
+  
+  </html>
+  

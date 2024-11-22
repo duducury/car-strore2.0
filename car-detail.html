@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="car-detail.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Link para Font Awesome -->
+
+
+  
+  <title>Detalhes do Carro</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="/">
+        <img src="imgs/logo.png" alt="Miami Imports" class="logo-img">
+      </a>
+    </div>
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="menu">
+      <li class="menu-item"><a href="/">Home</a></li>
+      <li class="menu-item"><a href="para-importar.html">Para Importar</a></li>
+      <li class="menu-item"><a href="sobre.html">Sobre nós</a></li>
+      <li class="menu-item"><a href="duvidas.html">Duvidas</a></li>
+      <li class="menu-item"><a href="contato.html">Contato</a></li>
+      <li class="menu-item"><a href="provassociais.html">Provas Sociais</a></li>
+    </ul>
+  </header>
+
+
+
+
+
+
+
+
+
+
+  <main id="car-detail-car-details">
+    <div class="car-detail-container">
+      <!-- Lado esquerdo: Carrossel, Vídeo e Formulário -->
+      <div class="car-detail-left">
+        <!-- Carrossel -->
+        <div class="car-detail-carousel-wrapper">
+          <div class="car-detail-carousel">
+            <button class="car-detail-carousel-control car-detail-prev" id="car-detail-prev-btn">&#8249;</button>
+            <div class="car-detail-carousel-track-container">
+              <ul class="car-detail-carousel-track" id="car-detail-carousel-track"></ul>
+            </div>
+            <button class="car-detail-carousel-control car-detail-next" id="car-detail-next-btn">&#8250;</button>
+          </div>
+          <div class="car-detail-thumbnails" id="car-detail-thumbnails"></div>
+        </div>
+
+        <div class="car-detail-description-container">
+          <h2 class="car-detail-subtitle">Descrição</h2>
+          <p id="car-detail-description" class="car-detail-description">Descrição completa do carro aparece aqui.</p>
+        </div>
+        
+  
+        <!-- Vídeo -->
+        <div class="video-container">
+          <h3 class="video-title">Confira o Vídeo</h3>
+          <video class="car-video" controls>
+            <source src="imgs/video/Snapinsta.app_video_AQN1a0bzCzC9cdCX-5Zn8EGUSd4V1MpiAIrSdANakWD_B9lLDCTZY33Cn9g-BUJWnHD0KsQzXminSTKFJJ6fRYjH.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução de vídeos.
+          </video>
+        </div>
+        
+  
+        <!-- Formulário de Contato -->
+       
+      </div>
+  
+      <!-- Lado direito: Descrições -->
+      <div class="car-detail-right">
+        <h1 id="car-detail-name" class="car-detail-title">Nome do Carro</h1>
+        <p id="car-detail-price" class="car-detail-price">Preço: R$ 0,00</p>
+        
+        <div class="car-detail-specifications">
+          <h2 class="car-detail-subtitle">Especificações</h2>
+          <div class="car-detail-spec-grid">
+            <p><strong>Marca:</strong> <span id="car-detail-brand">-</span></p>
+            <p><strong>Modelo:</strong> <span id="car-detail-model">-</span></p>
+            <p><strong>Ano:</strong> <span id="car-detail-year">-</span></p>
+            <p><strong>Motor:</strong> <span id="car-detail-engine">-</span></p>
+            <p><strong>Potência:</strong> <span id="car-detail-power">-</span></p>
+            <p><strong>Torque:</strong> <span id="car-detail-torque">-</span></p>
+            <p><strong>Câmbio:</strong> <span id="car-detail-transmission">-</span></p>
+            <p><strong>Combustível:</strong> <span id="car-detail-fuel">-</span></p>
+            <p><strong>Tração:</strong> <span id="car-detail-drive">-</span></p>
+
+    </div>
+  
+   
+        
+      </div> <br>
+
+
+<div class="whatsapp-button">
+  <img src="imgs/14031685_661150954042157_1646295238_n.webp" alt="Foto do Perfil" class="profile-pic">
+  <a href="https://wa.me/5561999840002" target="_blank" class="help-link">
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+    Precisa de ajuda? Fale comigo
+  </a>
+</div>
+           <div class="email-form-container">
+          <h3 class="email-form-title">Entre em Contato</h3>
+          <form class="email-form" action="mailto:seuemail@dominio.com" method="post" enctype="text/plain">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+            
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+            
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="5" placeholder="Escreva sua mensagem" required></textarea>
+            
+            <button type="submit" class="email-form-btn">Enviar</button>
+          </form>
+        </div></div>
+    
+    </div>
+
+<!-- Carros Destaques | Opções para Importação -->
+<section class="inventory-section">
+  <div class="inventory-header">
+      <br>
+      <h3 class="subtitle">Carros Destaques</h3>
+      <h2 class="title">Outras Opções para Importação</h2>
+      <br><br><br>
+  </div>
+
+  <!-- Botões de Navegação -->
+  <button id="prevInventory" class="inventory-nav">&#10094;</button>
+  <div id="inventory-grid" class="inventory-grid"></div>
+  <button id="nextInventory" class="inventory-nav">&#10095;</button>
+
+      <!-- Botão Ver Todas as Opções -->
+      <div class="view-all-options">
+        <button onclick="location.href='para-importar.html'" class="view-all-btn">Ver Todas as Opções</button>
+    </div>
+</section>
+
+    
+  </main>
+  
+  
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+<!-- Footer Section -->
+<footer class="footer-section">
+  <div class="footer-content">
+      <!-- Logo and About Section -->
+      <div class="footer-column">
+          <div class="footer-logo">
+              <a href="/">
+                  <img src="imgs/logo.png" alt="Logo" class="footer-logo-image">
+              </a>
+          </div>
+          <p class="footer-about">
+              Com mais de 30 anos de experiência, Marcelo Tripa é referência em importação de veículos exclusivos, trazendo qualidade, desempenho e luxo para o Brasil.
+          </p>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="footer-column">
+          <h3 class="footer-title">Links Rápidos</h3>
+          <ul class="footer-links">
+              <li><a href="/" class="footer-link">Home</a></li>
+              <li><a href="#para-importar" class="footer-link">Para Importar</a></li>
+              <li><a href="#nosso-estoque" class="footer-link">Nosso Estoque</a></li>
+              <li><a href="#blog" class="footer-link">Blog</a></li>
+              <li><a href="#contato" class="footer-link">Contato</a></li>
+          </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="footer-column">
+          <h3 class="footer-title">Contato</h3>
+          <ul class="footer-contact">
+              <li><i class="fas fa-phone"></i> Telefone: (11) 99999-9999</li>
+              <li><i class="fas fa-envelope"></i> Email: contato@marcelotripa.com</li>
+              <li><i class="fas fa-map-marker-alt"></i> Endereço: Rua Exemplo, 123, São Paulo, SP</li>
+          </ul>
+          <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-link">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-column">
+          <h3 class="footer-title">Redes Sociais</h3>
+          <div class="footer-social">
+              <a href="https://www.instagram.com/marcelotripa/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/marcelotripa" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://wa.me/SEUNUMERODETELEFONE" target="_blank" class="social-icon" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+      </div>
+  </div>
+  
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+      <p>&copy; 2024 Marcelo Tripa. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script async src="//www.instagram.com/embed.js"></script>
+
+  <!-- Script principal para os detalhes do carro -->
+  <script src="car-detail.js"></script>
+  <script>
+    // Função para abrir/fechar o menu de navegação
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    function rearrangeElements() {
+      const carDetailContainer = document.querySelector(".car-detail-container");
+      const carDetailLeft = document.querySelector(".car-detail-left");
+      const carDetailRight = document.querySelector(".car-detail-right");
+      const descriptionContainer = document.querySelector(".car-detail-description-container");
+      const videoContainer = document.querySelector(".video-container");
+
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        // Reorganiza apenas em telas pequenas
+        if (carDetailContainer && carDetailLeft && carDetailRight && descriptionContainer && videoContainer) {
+          if (!carDetailContainer.classList.contains("mobile-layout")) {
+            // Limpa e reorganiza os elementos somente uma vez
+            carDetailContainer.innerHTML = ""; 
+            carDetailContainer.appendChild(carDetailLeft); // Carrossel
+            carDetailContainer.appendChild(carDetailRight); // Nome e preço
+            carDetailContainer.appendChild(descriptionContainer); // Descrição
+            carDetailContainer.appendChild(videoContainer); // Vídeo
+            carDetailContainer.classList.add("mobile-layout");
+          }
+        }
+      } else {
+        // Restaura para o layout original em telas grandes
+        if (carDetailContainer.classList.contains("mobile-layout")) {
+          carDetailContainer.innerHTML = ""; // Limpa novamente
+          carDetailContainer.appendChild(carDetailLeft); // Carrossel
+          carDetailContainer.appendChild(descriptionContainer); // Descrição
+          carDetailContainer.appendChild(videoContainer); // Vídeo
+          carDetailContainer.appendChild(carDetailRight); // Nome e preço
+          carDetailContainer.classList.remove("mobile-layout");
+        }
+      }
+    }
+
+    // Executa a função ao carregar a página
+    rearrangeElements();
+
+    // Reexecuta a função ao redimensionar a tela
+    window.addEventListener("resize", rearrangeElements);
+  });
+</script>
+
+
+
+</body>
+</html>

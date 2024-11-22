@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> <!-- CSS principal -->
+  <link rel="stylesheet" href="para-importar.css"> <!-- CSS específico para esta página -->
+  <title>Para Importar - Marcelo Tripa</title>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+        <a href="/">
+            <img src="imgs/logo.png" alt="Miami Imports" class="logo-img">
+        </a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <ul class="menu">
+      <li class="menu-item"><a href="/">Home</a></li>
+        <li class="menu-item"><a href="para-importar.html">Para Importar</a></li>
+        <li class="menu-item"><a href="sobre.html">Sobre nós</a></li>
+        <li class="menu-item"><a href="duvidas.html">Duvidas</a></li>
+        <li class="menu-item"><a href="contato.html">Contato</a></li>
+        <li class="menu-item"><a href="provassociais.html">Provas Sociais</a></li>
+    </ul>
+</header>
+
+
+
+
+
+
+
+
+
+
+  <main>
+    <section class="filter-section">
+      <div class="filter-background"></div>
+      <div class="filter-overlay">
+        <h1>Filtrar Veículos</h1>
+        <div class="filter-options">
+          <!-- Dropdown para filtrar por Marca -->
+          <select id="filter-marca" onchange="applyFilters('marca')">
+            <option value="">Todas as Marcas</option>
+          </select>
+    
+          <!-- Dropdown para filtrar por Modelo -->
+          <select id="filter-modelo" onchange="applyFilters('modelo')">
+            <option value="">Todos os Modelos</option>
+          </select>
+    
+          <!-- Dropdown para filtrar por Ano -->
+          <select id="filter-year" onchange="applyFilters('ano')">
+            <option value="">Todos os Anos</option>
+          </select>
+    
+          <!-- Botão de Busca -->
+          <button id="search-button" class="filter-search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    
+
+
+
+
+
+
+
+  
+
+    <!-- Resultados dos Produtos -->
+    <section class="inventory-section">
+      <div class="inventory-header">
+          <h3 class="subtitle">Disponíveis para Importação</h3>
+          <h2 class="title">Para Importar</h2>
+      </div>
+
+      <!-- Grid de Produtos -->
+      <div id="inventory-grid" class="inventory-grid"></div>
+
+      <!-- Paginação -->
+      <div class="pagination">
+          <button id="prevPage" onclick="changePage(-1)">Anterior</button>
+          <span id="pageIndicator">Página 1</span>
+          <button id="nextPage" onclick="changePage(1)">Próximo</button>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <section class="contact-card">
+      <div class="contact-content">
+        <h2>Não encontrou o carro que está procurando?</h2>
+        <p>Entre em contato agora mesmo com <strong>Marcelo Tripa</strong>! Estamos prontos para ajudá-lo a encontrar o carro dos seus sonhos.</p>
+        <div class="contact-options">
+          <a href="mailto:contato@marcelotripa.com" class="contact-btn email">
+            <i class="fas fa-envelope"></i> Enviar Email
+          </a>
+          <a href="https://wa.me/5511999999999" target="_blank" class="contact-btn whatsapp">
+            <i class="fab fa-whatsapp"></i> Fale no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+    
+  
+
+
+
+
+
+
+
+
+
+
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Rodapé -->
+  <footer class="footer-section">
+    <div class="footer-content">
+      <div class="footer-column">
+        <div class="footer-logo">
+          <a href="/">
+            <img src="imgs/logo.png" alt="Logo" class="footer-logo-image">
+          </a>
+        </div>
+        <p class="footer-about">
+          Com mais de 30 anos de experiência, Marcelo Tripa é referência em importação de veículos exclusivos, trazendo qualidade, desempenho e luxo para o Brasil.
+        </p>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title">Links Rápidos</h3>
+        <ul class="footer-links">
+          <li><a href="/" class="footer-link">Home</a></li>
+          <li><a href="para-importar.html" class="footer-link">Para Importar</a></li>
+          <li><a href="#nosso-estoque" class="footer-link">Nosso Estoque</a></li>
+          <li><a href="#blog" class="footer-link">Blog</a></li>
+          <li><a href="#contato" class="footer-link">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title">Contato</h3>
+        <ul class="footer-contact">
+          <li><i class="fas fa-phone"></i> Telefone: (11) 99999-9999</li>
+          <li><i class="fas fa-envelope"></i> Email: contato@marcelotripa.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> Endereço: Rua Exemplo, 123, São Paulo, SP</li>
+        </ul>
+        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-link">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-title">Redes Sociais</h3>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/marcelotripa/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/marcelotripa" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/5511999999999" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Marcelo Tripa. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="para-importar.js"></script>
+</body>
+</html>
